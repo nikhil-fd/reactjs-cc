@@ -1,6 +1,10 @@
+```text
+STEP1️⃣ 👉Fetch API Data 👉 File -- "useCurrencyinfo.js"
+
+```
+
 ```javascript
 
-//STEP1️⃣ 👉Fetch API Data 👉 File -- "useCurrencyinfo.js"
 import {useState, useEffect} from 'react';
 
 //Creating own custom hooks
@@ -10,16 +14,22 @@ function useCurrencyInfo(currency){
         fetch(`https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/${currency}.json`)
         .then((response) => response.json())       //when data comes from API its data type is "string" but we need to covert this data type into "JSON". 
         .then((response) => setData(response[currency]))  //After converting data in above, here we are storing data inside "data" using "setData".here this "data" like a variable and "setData" is a function.
-    }, [currency])
+    }, [currency]);
     console.log(data);
     return data;
 }
 export default useCurrencyInfo;
 
+```
 
-//STEP2️⃣ 👉Create a component as input Form Box  👉File:"inputbox.js"
+```text
+STEP2️⃣ 👉Create a component as input From Box  👉File:"inputbox.js"
+
+
+```
+
+```javascript
 import React, {useId} from "react";
-
 function InputBox(
     {label, 
         amount, 
@@ -77,14 +87,26 @@ export default InputBox;
 //NOTE: useId() hooks it creates a unique id. here we use like, in html we used to bind 
 //      label tag with input tag by using "for" in label and "id" in input. here it does same. 
 
+```
 
-//STEP3️⃣ 👉Here we export "n" number of component for better performance file:"index.js"
+```text
+STEP3️⃣ 👉Here we export "n" number of component for better performance file:"index.js"
+
+```
+
+```javascript
 import InputBox from "./inputbox";
 
 export {InputBox}
 
+```
 
-//STEP4️⃣ 👉Here we are reusing component which component created in STEP 2 File: "App.js"
+```text
+STEP4️⃣ 👉Here we are reusing component which component created in STEP 2 File: "App.js"
+
+```
+
+```javascript
 import { useState } from "react";
 import { InputBox } from "./components";
 import useCurrencyInfo from "./hooks/useCurrencyinfo";
@@ -185,8 +207,13 @@ function App() {
 
 export default App;
 
+```
 
-//STEP5️⃣ 👉Here Rendering our App  👉File: "/src/index.js
+```text
+STEP5️⃣ 👉Here Rendering our App  👉File: "/src/index.js
+
+```
+```javascript
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
